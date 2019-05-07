@@ -1,0 +1,1624 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "https://management.azure.com/"
+        }
+    ],
+    "info": {
+        "description": "REST API for MarketplaceOrdering Agreements.",
+        "title": "MarketplaceOrdering.Agreements",
+        "version": "2015-06-01",
+        "x-apisguru-categories": [
+            "cloud"
+        ],
+        "x-logo": {
+            "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+        },
+        "x-origin": [
+            {
+                "format": "swagger",
+                "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/marketplaceordering/resource-manager/Microsoft.MarketplaceOrdering/stable/2015-06-01/Agreements.json",
+                "version": "2.0"
+            }
+        ],
+        "x-preferred": true,
+        "x-providerName": "azure.com",
+        "x-serviceName": "marketplaceordering-Agreements",
+        "x-tags": [
+            "Azure",
+            "Microsoft"
+        ]
+    },
+    "security": [
+        {
+            "azure_auth": [
+                "user_impersonation"
+            ]
+        }
+    ],
+    "paths": {
+        "/providers/Microsoft.MarketplaceOrdering/operations": {
+            "get": {
+                "description": "Lists all of the available Microsoft.MarketplaceOrdering REST API operations.",
+                "operationId": "Operations_List",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK. The request has succeeded.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Result of the request to list MarketplaceOrdering operations. It contains a list of operations and a URL link to get the next set of results.",
+                                    "properties": {
+                                        "nextLink": {
+                                            "description": "URL to get the next set of operation list results if there are any.",
+                                            "readOnly": true,
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "description": "List of Microsoft.MarketplaceOrdering operations supported by the Microsoft.MarketplaceOrdering resource provider.",
+                                            "items": {
+                                                "description": "Microsoft.MarketplaceOrdering REST API operation",
+                                                "properties": {
+                                                    "display": {
+                                                        "description": "The object that represents the operation.",
+                                                        "properties": {
+                                                            "operation": {
+                                                                "description": "Operation type: Get Agreement, Sign Agreement, Cancel Agreement etc.",
+                                                                "type": "string"
+                                                            },
+                                                            "provider": {
+                                                                "description": "Service provider: Microsoft.MarketplaceOrdering",
+                                                                "type": "string"
+                                                            },
+                                                            "resource": {
+                                                                "description": "Resource on which the operation is performed: Agreement, virtualmachine, etc.",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "name": {
+                                                        "description": "Operation name: {provider}/{resource}/{operation}",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Microsoft.MarketplaceOrdering error response describing why the operation failed.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Error response indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.",
+                                    "properties": {
+                                        "error": {
+                                            "description": "The details of the error.",
+                                            "properties": {
+                                                "code": {
+                                                    "description": "Error code.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "message": {
+                                                    "description": "Error message indicating why the operation failed.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Operations"
+                ],
+                "x-ms-pageable": {
+                    "nextLinkName": "nextLink"
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.MarketplaceOrdering/agreements": {
+            "get": {
+                "description": "List marketplace agreements in the subscription.",
+                "operationId": "MarketplaceAgreements_List",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "The subscription ID that identifies an Azure subscription.",
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Terms returned successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "allOf": [
+                                            {
+                                                "description": "ARM resource.",
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Resource ID.",
+                                                        "readOnly": true,
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "description": "Resource name.",
+                                                        "readOnly": true,
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "description": "Resource type.",
+                                                        "readOnly": true,
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "x-ms-azure-resource": true,
+                                                "type": "object"
+                                            }
+                                        ],
+                                        "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                        "properties": {
+                                            "properties": {
+                                                "description": "Represents the properties of the resource.",
+                                                "x-ms-client-flatten": true,
+                                                "properties": {
+                                                    "accepted": {
+                                                        "description": "If any version of the terms have been accepted, otherwise false.",
+                                                        "type": "boolean"
+                                                    },
+                                                    "licenseTextLink": {
+                                                        "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                        "type": "string"
+                                                    },
+                                                    "plan": {
+                                                        "description": "Plan identifier string of image being deployed.",
+                                                        "type": "string"
+                                                    },
+                                                    "privacyPolicyLink": {
+                                                        "description": "Link to the privacy policy of the publisher.",
+                                                        "type": "string"
+                                                    },
+                                                    "product": {
+                                                        "description": "Offer identifier string of image being deployed.",
+                                                        "type": "string"
+                                                    },
+                                                    "publisher": {
+                                                        "description": "Publisher identifier string of image being deployed.",
+                                                        "type": "string"
+                                                    },
+                                                    "retrieveDatetime": {
+                                                        "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                        "format": "date-time",
+                                                        "type": "string"
+                                                    },
+                                                    "signature": {
+                                                        "description": "Terms signature.",
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "SetMarketplaceTerms": {
+                        "parameters": {
+                            "api-version": "2016-04-01",
+                            "subscriptionId": "subid"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": [
+                                    {
+                                        "id": "id",
+                                        "name": "planid",
+                                        "properties": {
+                                            "accepted": true,
+                                            "licenseTextLink": "test.licenseLink",
+                                            "plan": "planid",
+                                            "privacyPolicyLink": "test.privacyPolicyLink",
+                                            "product": "offid",
+                                            "publisher": "pubid",
+                                            "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                            "signature": "ASDFSDAFWEFASDGWERLWER"
+                                        },
+                                        "type": "Microsoft.MarketplaceOrdering/offertypes"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.MarketplaceOrdering/agreements/{publisherId}/offers/{offerId}/plans/{planId}": {
+            "get": {
+                "description": "Get marketplace agreement.",
+                "operationId": "MarketplaceAgreements_GetAgreement",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "The subscription ID that identifies an Azure subscription.",
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Publisher identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "publisherId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "offerId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Plan identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "planId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Terms returned successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "description": "ARM resource.",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "Resource ID.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "description": "Resource name.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "description": "Resource type.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "x-ms-azure-resource": true,
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                    "properties": {
+                                        "properties": {
+                                            "description": "Represents the properties of the resource.",
+                                            "x-ms-client-flatten": true,
+                                            "properties": {
+                                                "accepted": {
+                                                    "description": "If any version of the terms have been accepted, otherwise false.",
+                                                    "type": "boolean"
+                                                },
+                                                "licenseTextLink": {
+                                                    "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                    "type": "string"
+                                                },
+                                                "plan": {
+                                                    "description": "Plan identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "privacyPolicyLink": {
+                                                    "description": "Link to the privacy policy of the publisher.",
+                                                    "type": "string"
+                                                },
+                                                "product": {
+                                                    "description": "Offer identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "description": "Publisher identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "retrieveDatetime": {
+                                                    "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "signature": {
+                                                    "description": "Terms signature.",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "SetMarketplaceTerms": {
+                        "parameters": {
+                            "api-version": "2016-04-01",
+                            "offerId": "offid",
+                            "planId": "planid",
+                            "publisherId": "pubid",
+                            "subscriptionId": "subid"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "id",
+                                    "name": "planid",
+                                    "properties": {
+                                        "accepted": true,
+                                        "licenseTextLink": "test.licenseLink",
+                                        "plan": "planid",
+                                        "privacyPolicyLink": "test.privacyPolicyLink",
+                                        "product": "offid",
+                                        "publisher": "pubid",
+                                        "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                        "signature": "ASDFSDAFWEFASDGWERLWER"
+                                    },
+                                    "type": "Microsoft.MarketplaceOrdering/offertypes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.MarketplaceOrdering/agreements/{publisherId}/offers/{offerId}/plans/{planId}/cancel": {
+            "put": {
+                "description": "Cancel marketplace terms.",
+                "operationId": "MarketplaceAgreements_Cancel",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "The subscription ID that identifies an Azure subscription.",
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Publisher identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "publisherId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "offerId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Plan identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "planId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK. The request was successfully processed and the terms were rejected.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "description": "ARM resource.",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "Resource ID.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "description": "Resource name.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "description": "Resource type.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "x-ms-azure-resource": true,
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                    "properties": {
+                                        "properties": {
+                                            "description": "Represents the properties of the resource.",
+                                            "x-ms-client-flatten": true,
+                                            "properties": {
+                                                "accepted": {
+                                                    "description": "If any version of the terms have been accepted, otherwise false.",
+                                                    "type": "boolean"
+                                                },
+                                                "licenseTextLink": {
+                                                    "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                    "type": "string"
+                                                },
+                                                "plan": {
+                                                    "description": "Plan identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "privacyPolicyLink": {
+                                                    "description": "Link to the privacy policy of the publisher.",
+                                                    "type": "string"
+                                                },
+                                                "product": {
+                                                    "description": "Offer identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "description": "Publisher identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "retrieveDatetime": {
+                                                    "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "signature": {
+                                                    "description": "Terms signature.",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Microsoft.MarketplaceOrdering error response describing why the operation failed.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Error response indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.",
+                                    "properties": {
+                                        "error": {
+                                            "description": "The details of the error.",
+                                            "properties": {
+                                                "code": {
+                                                    "description": "Error code.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "message": {
+                                                    "description": "Error message indicating why the operation failed.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "SetMarketplaceTerms": {
+                        "parameters": {
+                            "api-version": "2016-04-01",
+                            "offerId": "offid",
+                            "planId": "planid",
+                            "publisherId": "pubid",
+                            "subscriptionId": "subid"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "id",
+                                    "name": "planid",
+                                    "properties": {
+                                        "accepted": false,
+                                        "licenseTextLink": "test.licenseLink",
+                                        "plan": "planid",
+                                        "privacyPolicyLink": "test.privacyPolicyLink",
+                                        "product": "offid",
+                                        "publisher": "pubid",
+                                        "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                        "signature": "ASDFSDAFWEFASDGWERLWER"
+                                    },
+                                    "type": "Microsoft.MarketplaceOrdering/offertypes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.MarketplaceOrdering/agreements/{publisherId}/offers/{offerId}/plans/{planId}/sign": {
+            "put": {
+                "description": "Sign marketplace terms.",
+                "operationId": "MarketplaceAgreements_Sign",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "The subscription ID that identifies an Azure subscription.",
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Publisher identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "publisherId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "offerId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Plan identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "planId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK. The request was successfully processed and the terms were accepted.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "description": "ARM resource.",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "Resource ID.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "description": "Resource name.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "description": "Resource type.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "x-ms-azure-resource": true,
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                    "properties": {
+                                        "properties": {
+                                            "description": "Represents the properties of the resource.",
+                                            "x-ms-client-flatten": true,
+                                            "properties": {
+                                                "accepted": {
+                                                    "description": "If any version of the terms have been accepted, otherwise false.",
+                                                    "type": "boolean"
+                                                },
+                                                "licenseTextLink": {
+                                                    "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                    "type": "string"
+                                                },
+                                                "plan": {
+                                                    "description": "Plan identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "privacyPolicyLink": {
+                                                    "description": "Link to the privacy policy of the publisher.",
+                                                    "type": "string"
+                                                },
+                                                "product": {
+                                                    "description": "Offer identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "description": "Publisher identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "retrieveDatetime": {
+                                                    "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "signature": {
+                                                    "description": "Terms signature.",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Microsoft.MarketplaceOrdering error response describing why the operation failed.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Error response indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.",
+                                    "properties": {
+                                        "error": {
+                                            "description": "The details of the error.",
+                                            "properties": {
+                                                "code": {
+                                                    "description": "Error code.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "message": {
+                                                    "description": "Error message indicating why the operation failed.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "SetMarketplaceTerms": {
+                        "parameters": {
+                            "api-version": "2016-04-01",
+                            "offerId": "offid",
+                            "planId": "planid",
+                            "publisherId": "pubid",
+                            "subscriptionId": "subid"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "id",
+                                    "name": "planid",
+                                    "properties": {
+                                        "accepted": true,
+                                        "licenseTextLink": "test.licenseLink",
+                                        "plan": "planid",
+                                        "privacyPolicyLink": "test.privacyPolicyLink",
+                                        "product": "offid",
+                                        "publisher": "pubid",
+                                        "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                        "signature": "ASDFSDAFWEFASDGWERLWER"
+                                    },
+                                    "type": "Microsoft.MarketplaceOrdering/offertypes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.MarketplaceOrdering/offerTypes/{offerType}/publishers/{publisherId}/offers/{offerId}/plans/{planId}/agreements/current": {
+            "get": {
+                "description": "Get marketplace terms.",
+                "operationId": "MarketplaceAgreements_Get",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "The subscription ID that identifies an Azure subscription.",
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer Type, currently only virtualmachine type is supported.",
+                        "in": "path",
+                        "name": "offerType",
+                        "required": true,
+                        "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "OfferType"
+                        },
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "virtualmachine"
+                            ]
+                        }
+                    },
+                    {
+                        "description": "Publisher identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "publisherId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "offerId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Plan identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "planId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Terms returned successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "description": "ARM resource.",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "Resource ID.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "description": "Resource name.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "description": "Resource type.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "x-ms-azure-resource": true,
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                    "properties": {
+                                        "properties": {
+                                            "description": "Represents the properties of the resource.",
+                                            "x-ms-client-flatten": true,
+                                            "properties": {
+                                                "accepted": {
+                                                    "description": "If any version of the terms have been accepted, otherwise false.",
+                                                    "type": "boolean"
+                                                },
+                                                "licenseTextLink": {
+                                                    "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                    "type": "string"
+                                                },
+                                                "plan": {
+                                                    "description": "Plan identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "privacyPolicyLink": {
+                                                    "description": "Link to the privacy policy of the publisher.",
+                                                    "type": "string"
+                                                },
+                                                "product": {
+                                                    "description": "Offer identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "description": "Publisher identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "retrieveDatetime": {
+                                                    "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "signature": {
+                                                    "description": "Terms signature.",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "GetMarketplaceTerms": {
+                        "parameters": {
+                            "api-version": "2016-04-01",
+                            "offerId": "offid",
+                            "offerType": "virtualmachine",
+                            "planId": "planid",
+                            "publisherId": "pubid",
+                            "subscriptionId": "subid"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "id",
+                                    "name": "planid",
+                                    "properties": {
+                                        "accepted": true,
+                                        "licenseTextLink": "test.licenseLink",
+                                        "plan": "planid",
+                                        "privacyPolicyLink": "test.privacyPolicyLink",
+                                        "product": "offid",
+                                        "publisher": "pubid",
+                                        "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                        "signature": "ASDFSDAFWEFASDGWERLWER"
+                                    },
+                                    "type": "Microsoft.MarketplaceOrdering/offertypes"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "Save marketplace terms.",
+                "operationId": "MarketplaceAgreements_Create",
+                "parameters": [
+                    {
+                        "description": "The API version to use for the request.",
+                        "in": "query",
+                        "name": "api-version",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer Type, currently only virtualmachine type is supported.",
+                        "in": "path",
+                        "name": "offerType",
+                        "required": true,
+                        "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "OfferType"
+                        },
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "virtualmachine"
+                            ]
+                        }
+                    },
+                    {
+                        "description": "The subscription ID that identifies an Azure subscription.",
+                        "in": "path",
+                        "name": "subscriptionId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Publisher identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "publisherId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Offer identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "offerId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Plan identifier string of image being deployed.",
+                        "in": "path",
+                        "name": "planId",
+                        "required": true,
+                        "x-ms-parameter-location": "method",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK. The request was successfully processed and the terms were accepted or acceptance revoked as per the request body.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "allOf": [
+                                        {
+                                            "description": "ARM resource.",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "Resource ID.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "description": "Resource name.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "description": "Resource type.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "x-ms-azure-resource": true,
+                                            "type": "object"
+                                        }
+                                    ],
+                                    "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                    "properties": {
+                                        "properties": {
+                                            "description": "Represents the properties of the resource.",
+                                            "x-ms-client-flatten": true,
+                                            "properties": {
+                                                "accepted": {
+                                                    "description": "If any version of the terms have been accepted, otherwise false.",
+                                                    "type": "boolean"
+                                                },
+                                                "licenseTextLink": {
+                                                    "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                    "type": "string"
+                                                },
+                                                "plan": {
+                                                    "description": "Plan identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "privacyPolicyLink": {
+                                                    "description": "Link to the privacy policy of the publisher.",
+                                                    "type": "string"
+                                                },
+                                                "product": {
+                                                    "description": "Offer identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "description": "Publisher identifier string of image being deployed.",
+                                                    "type": "string"
+                                                },
+                                                "retrieveDatetime": {
+                                                    "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "signature": {
+                                                    "description": "Terms signature.",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Microsoft.MarketplaceOrdering error response describing why the operation failed.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "Error response indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.",
+                                    "properties": {
+                                        "error": {
+                                            "description": "The details of the error.",
+                                            "properties": {
+                                                "code": {
+                                                    "description": "Error code.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "message": {
+                                                    "description": "Error message indicating why the operation failed.",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "SetMarketplaceTerms": {
+                        "parameters": {
+                            "api-version": "2016-04-01",
+                            "offerId": "offid",
+                            "offerType": "virtualmachine",
+                            "parameters": {
+                                "id": "id",
+                                "name": "planid",
+                                "properties": {
+                                    "accepted": false,
+                                    "licenseTextLink": "test.licenseLink",
+                                    "plan": "planid",
+                                    "privacyPolicyLink": "test.privacyPolicyLink",
+                                    "product": "offid",
+                                    "publisher": "pubid",
+                                    "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                    "signature": "ASDFSDAFWEFASDGWERLWER"
+                                },
+                                "type": "Microsoft.MarketplaceOrdering/offertypes"
+                            },
+                            "planId": "planid",
+                            "publisherId": "pubid",
+                            "subscriptionId": "subid"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "id",
+                                    "name": "planid",
+                                    "properties": {
+                                        "accepted": true,
+                                        "licenseTextLink": "test.licenseLink",
+                                        "plan": "planid",
+                                        "privacyPolicyLink": "test.privacyPolicyLink",
+                                        "product": "offid",
+                                        "publisher": "pubid",
+                                        "retrieveDatetime": "2017-08-15T11:33:07.12132Z",
+                                        "signature": "ASDFSDAFWEFASDGWERLWER"
+                                    },
+                                    "type": "Microsoft.MarketplaceOrdering/offertypes"
+                                },
+                                "description": "OK. The request was successfully processed and the terms were accepted or acceptance revoked as per the request body."
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "description": "ARM resource.",
+                                        "properties": {
+                                            "id": {
+                                                "description": "Resource ID.",
+                                                "readOnly": true,
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "description": "Resource name.",
+                                                "readOnly": true,
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "description": "Resource type.",
+                                                "readOnly": true,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "x-ms-azure-resource": true,
+                                        "type": "object"
+                                    }
+                                ],
+                                "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                                "properties": {
+                                    "properties": {
+                                        "description": "Represents the properties of the resource.",
+                                        "x-ms-client-flatten": true,
+                                        "properties": {
+                                            "accepted": {
+                                                "description": "If any version of the terms have been accepted, otherwise false.",
+                                                "type": "boolean"
+                                            },
+                                            "licenseTextLink": {
+                                                "description": "Link to HTML with Microsoft and Publisher terms.",
+                                                "type": "string"
+                                            },
+                                            "plan": {
+                                                "description": "Plan identifier string of image being deployed.",
+                                                "type": "string"
+                                            },
+                                            "privacyPolicyLink": {
+                                                "description": "Link to the privacy policy of the publisher.",
+                                                "type": "string"
+                                            },
+                                            "product": {
+                                                "description": "Offer identifier string of image being deployed.",
+                                                "type": "string"
+                                            },
+                                            "publisher": {
+                                                "description": "Publisher identifier string of image being deployed.",
+                                                "type": "string"
+                                            },
+                                            "retrieveDatetime": {
+                                                "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                                "format": "date-time",
+                                                "type": "string"
+                                            },
+                                            "signature": {
+                                                "description": "Terms signature.",
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "description": "Parameters supplied to the Create Marketplace Terms operation.",
+                    "required": true
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AgreementProperties": {
+                "description": "Agreement Terms definition",
+                "properties": {
+                    "accepted": {
+                        "description": "If any version of the terms have been accepted, otherwise false.",
+                        "type": "boolean"
+                    },
+                    "licenseTextLink": {
+                        "description": "Link to HTML with Microsoft and Publisher terms.",
+                        "type": "string"
+                    },
+                    "plan": {
+                        "description": "Plan identifier string of image being deployed.",
+                        "type": "string"
+                    },
+                    "privacyPolicyLink": {
+                        "description": "Link to the privacy policy of the publisher.",
+                        "type": "string"
+                    },
+                    "product": {
+                        "description": "Offer identifier string of image being deployed.",
+                        "type": "string"
+                    },
+                    "publisher": {
+                        "description": "Publisher identifier string of image being deployed.",
+                        "type": "string"
+                    },
+                    "retrieveDatetime": {
+                        "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "signature": {
+                        "description": "Terms signature.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "AgreementTerms": {
+                "allOf": [
+                    {
+                        "description": "ARM resource.",
+                        "properties": {
+                            "id": {
+                                "description": "Resource ID.",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Resource name.",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "Resource type.",
+                                "readOnly": true,
+                                "type": "string"
+                            }
+                        },
+                        "x-ms-azure-resource": true,
+                        "type": "object"
+                    }
+                ],
+                "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+                "properties": {
+                    "properties": {
+                        "description": "Represents the properties of the resource.",
+                        "x-ms-client-flatten": true,
+                        "properties": {
+                            "accepted": {
+                                "description": "If any version of the terms have been accepted, otherwise false.",
+                                "type": "boolean"
+                            },
+                            "licenseTextLink": {
+                                "description": "Link to HTML with Microsoft and Publisher terms.",
+                                "type": "string"
+                            },
+                            "plan": {
+                                "description": "Plan identifier string of image being deployed.",
+                                "type": "string"
+                            },
+                            "privacyPolicyLink": {
+                                "description": "Link to the privacy policy of the publisher.",
+                                "type": "string"
+                            },
+                            "product": {
+                                "description": "Offer identifier string of image being deployed.",
+                                "type": "string"
+                            },
+                            "publisher": {
+                                "description": "Publisher identifier string of image being deployed.",
+                                "type": "string"
+                            },
+                            "retrieveDatetime": {
+                                "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "signature": {
+                                "description": "Terms signature.",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ErrorResponse": {
+                "description": "Error response indicates Microsoft.MarketplaceOrdering service is not able to process the incoming request. The reason is provided in the error message.",
+                "properties": {
+                    "error": {
+                        "description": "The details of the error.",
+                        "properties": {
+                            "code": {
+                                "description": "Error code.",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "message": {
+                                "description": "Error message indicating why the operation failed.",
+                                "readOnly": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "Operation": {
+                "description": "Microsoft.MarketplaceOrdering REST API operation",
+                "properties": {
+                    "display": {
+                        "description": "The object that represents the operation.",
+                        "properties": {
+                            "operation": {
+                                "description": "Operation type: Get Agreement, Sign Agreement, Cancel Agreement etc.",
+                                "type": "string"
+                            },
+                            "provider": {
+                                "description": "Service provider: Microsoft.MarketplaceOrdering",
+                                "type": "string"
+                            },
+                            "resource": {
+                                "description": "Resource on which the operation is performed: Agreement, virtualmachine, etc.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "name": {
+                        "description": "Operation name: {provider}/{resource}/{operation}",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "OperationListResult": {
+                "description": "Result of the request to list MarketplaceOrdering operations. It contains a list of operations and a URL link to get the next set of results.",
+                "properties": {
+                    "nextLink": {
+                        "description": "URL to get the next set of operation list results if there are any.",
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "List of Microsoft.MarketplaceOrdering operations supported by the Microsoft.MarketplaceOrdering resource provider.",
+                        "items": {
+                            "description": "Microsoft.MarketplaceOrdering REST API operation",
+                            "properties": {
+                                "display": {
+                                    "description": "The object that represents the operation.",
+                                    "properties": {
+                                        "operation": {
+                                            "description": "Operation type: Get Agreement, Sign Agreement, Cancel Agreement etc.",
+                                            "type": "string"
+                                        },
+                                        "provider": {
+                                            "description": "Service provider: Microsoft.MarketplaceOrdering",
+                                            "type": "string"
+                                        },
+                                        "resource": {
+                                            "description": "Resource on which the operation is performed: Agreement, virtualmachine, etc.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "name": {
+                                    "description": "Operation name: {provider}/{resource}/{operation}",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "Resource": {
+                "description": "ARM resource.",
+                "properties": {
+                    "id": {
+                        "description": "Resource ID.",
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Resource name.",
+                        "readOnly": true,
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Resource type.",
+                        "readOnly": true,
+                        "type": "string"
+                    }
+                },
+                "x-ms-azure-resource": true,
+                "type": "object"
+            }
+        },
+        "parameters": {
+            "ApiVersionParameter": {
+                "description": "The API version to use for the request.",
+                "in": "query",
+                "name": "api-version",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "OfferTypeParameter": {
+                "description": "Offer Type, currently only virtualmachine type is supported.",
+                "in": "path",
+                "name": "offerType",
+                "required": true,
+                "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "OfferType"
+                },
+                "x-ms-parameter-location": "method",
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "virtualmachine"
+                    ]
+                }
+            },
+            "OffersParameter": {
+                "description": "Offer identifier string of image being deployed.",
+                "in": "path",
+                "name": "offerId",
+                "required": true,
+                "x-ms-parameter-location": "method",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "PlansParameter": {
+                "description": "Plan identifier string of image being deployed.",
+                "in": "path",
+                "name": "planId",
+                "required": true,
+                "x-ms-parameter-location": "method",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "PublishersParameter": {
+                "description": "Publisher identifier string of image being deployed.",
+                "in": "path",
+                "name": "publisherId",
+                "required": true,
+                "x-ms-parameter-location": "method",
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "SubscriptionIdParameter": {
+                "description": "The subscription ID that identifies an Azure subscription.",
+                "in": "path",
+                "name": "subscriptionId",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "securitySchemes": {
+            "azure_auth": {
+                "description": "Azure Active Directory OAuth2 Flow.",
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+                        "scopes": {
+                            "user_impersonation": "impersonate your user account"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

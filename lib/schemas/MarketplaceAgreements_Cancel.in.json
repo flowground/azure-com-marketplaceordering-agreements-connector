@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "publisherId": {
+            "required": true,
+            "type": "string"
+        },
+        "offerId": {
+            "required": true,
+            "type": "string"
+        },
+        "planId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "offerType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "virtualmachine"
+            ]
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "publisherId": {
+            "required": true,
+            "type": "string"
+        },
+        "offerId": {
+            "required": true,
+            "type": "string"
+        },
+        "planId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "ARM resource.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource ID.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Terms properties for provided Publisher/Offer/Plan tuple",
+            "properties": {
+                "properties": {
+                    "description": "Represents the properties of the resource.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "accepted": {
+                            "description": "If any version of the terms have been accepted, otherwise false.",
+                            "type": "boolean"
+                        },
+                        "licenseTextLink": {
+                            "description": "Link to HTML with Microsoft and Publisher terms.",
+                            "type": "string"
+                        },
+                        "plan": {
+                            "description": "Plan identifier string of image being deployed.",
+                            "type": "string"
+                        },
+                        "privacyPolicyLink": {
+                            "description": "Link to the privacy policy of the publisher.",
+                            "type": "string"
+                        },
+                        "product": {
+                            "description": "Offer identifier string of image being deployed.",
+                            "type": "string"
+                        },
+                        "publisher": {
+                            "description": "Publisher identifier string of image being deployed.",
+                            "type": "string"
+                        },
+                        "retrieveDatetime": {
+                            "description": "Date and time in UTC of when the terms were accepted. This is empty if Accepted is false.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "signature": {
+                            "description": "Terms signature.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
